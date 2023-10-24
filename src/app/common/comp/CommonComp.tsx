@@ -33,7 +33,7 @@ export const CCInput = (props: InputType) => {
   return (
     <div className={props.wrapClass} style={props.wrapStyle}>
       <input className={props.inputClass} style={props.inputStyle} type={props.inputType} placeholder={props.inputPlaceHolder}>
-
+      <div>test</div>
       </input>
     </div>
   );
