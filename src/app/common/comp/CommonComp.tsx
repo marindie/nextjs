@@ -1,5 +1,8 @@
+"use client"
+
 import { debounce } from "lodash";
 import { useCallback } from "react";
+import { useInput } from "../utils/common";
 
 type InputType = {
   wrapClass?: string;
@@ -10,6 +13,9 @@ type InputType = {
   inputPlaceHolder?: string;
   dataList?: any;
   setDataList?: any;
+  data?: string;
+  updateData?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  label?: string;
 }
 
 export const CCInput = (props: InputType) => {
@@ -31,11 +37,12 @@ export const CCInput = (props: InputType) => {
   const debouncedChangeHandler = useCallback(debounce(changeHandler, 400), []);
 
   return (
-    <div className={props.wrapClass} style={props.wrapStyle}>
-      <input className={props.inputClass} style={props.inputStyle} type={props.inputType} placeholder={props.inputPlaceHolder}>
-
-      </input>
-    </div>
+    <label>
+      {props.label}
+      <div className={props.wrapClass} style={props.wrapStyle}>
+        <input className={props.inputClass} style={props.inputStyle} type={props.inputType} placeholder={props.inputPlaceHolder} onChange={props.updateData} value={props.data} />
+      </div>
+    </label>
   );
 };
 
