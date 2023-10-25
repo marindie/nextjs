@@ -2,9 +2,10 @@
 
 import { debounce } from "lodash";
 import { useCallback } from "react";
-import { useInput } from "../utils/common";
 
 type InputType = {
+  labelClass?: string;
+  labelStyle?: React.CSSProperties;
   wrapClass?: string;
   wrapStyle?: React.CSSProperties;
   inputClass?: string;
@@ -38,9 +39,11 @@ export const CCInput = (props: InputType) => {
 
   return (
     <label>
-      {props.label}
+      <span className={props.labelClass} style={props.labelStyle}>{props.label}</span>
       <div className={props.wrapClass} style={props.wrapStyle}>
-        <input className={props.inputClass} style={props.inputStyle} type={props.inputType} placeholder={props.inputPlaceHolder} onChange={props.updateData} value={props.data} />
+        <input className={props.inputClass} style={props.inputStyle} type={props.inputType} placeholder={props.inputPlaceHolder} onChange={props.updateData} value={props.data} required={true} />
+        <span className='highlight'></span>
+        <span className='bar'></span>
       </div>
     </label>
   );

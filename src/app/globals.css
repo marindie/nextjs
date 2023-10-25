@@ -1,2 +1,41 @@
 @import "reset.css";
 
+label {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.def-label {
+  padding: 10px;
+}
+
+.rounded-input {
+  border-radius:10px;
+  border: 1px solid #1f1f1f;
+  transition: 1s border-color;
+}
+.rounded-input:hover {
+  border: 1px solid #f753c0;
+}
+
+.rounded-input:focus {
+  border: 1px solid #5bc9a4;
+}
+
+/* input elements with type="text" attribute */
+input[type=text] {
+  display:block;
+  /* add top and bottom margin */
+  margin:10px 0;
+  width:100%;
+  max-width: 300px;
+  padding:10px; 
+}
+
+/* input elements with type="password" attribute */
+input[type=password] {
+  .signup-text-input {
+  
+  }  
+}
