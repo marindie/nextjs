@@ -2,22 +2,7 @@
 
 import { debounce } from "lodash";
 import { useCallback } from "react";
-
-type InputType = {
-  labelClass?: string;
-  labelStyle?: React.CSSProperties;
-  wrapClass?: string;
-  wrapStyle?: React.CSSProperties;
-  inputClass?: string;
-  inputStyle?: React.CSSProperties;
-  inputType?: string;
-  inputPlaceHolder?: string;
-  dataList?: any;
-  setDataList?: any;
-  data?: string;
-  updateData?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  label?: string;
-}
+import { InputType, SelectType } from "../common-type";
 
 export const CCInput = (props: InputType) => {
   const changeHandler = (event: any) => {
@@ -37,15 +22,91 @@ export const CCInput = (props: InputType) => {
 
   const debouncedChangeHandler = useCallback(debounce(changeHandler, 400), []);
 
+  const labelWrapOptions = {
+    className: props.labelWrapClass,
+    style: props.labelWrapStyle,
+  }  
+
+  const labelOptions = {
+    className: props.labelClass,
+    style: props.labelStyle,
+  }
+
+  const wrapOptions = {
+    className: props.wrapClass,
+    style: props.wrapStyle,
+  }
+
+  const inputOptions = {
+    className: props.inputClass,
+    style: props.inputStyle,
+    type: props.inputType,
+    placeholder: props.inputPlaceHolder,
+    onChange: props.updateData,
+    value: props.data,
+    required: true,
+  }
+
   return (
-    <label>
-      <span className={props.labelClass} style={props.labelStyle}>{props.label}</span>
-      <div className={props.wrapClass} style={props.wrapStyle}>
-        <input className={props.inputClass} style={props.inputStyle} type={props.inputType} placeholder={props.inputPlaceHolder} onChange={props.updateData} value={props.data} required={true} />
-        <span className='highlight'></span>
-        <span className='bar'></span>
-      </div>
-    </label>
+    <div {...wrapOptions}>
+      <label {...labelWrapOptions}>
+        <span {...labelOptions}>{props.label}</span>
+      </label>
+      <input {...inputOptions} />
+      <span className='highlight'></span>
+      <span className='bar'></span>
+    </div>
   );
 };
+
+export const CCSelect = (props: SelectType) => {
+
+  const labelWrapOptions = {
+    className: props.labelWrapClass,
+    style: props.labelWrapStyle,
+  }  
+
+  const labelOptions = {
+    className: props.labelClass,
+    style: props.labelStyle,
+  }
+
+  const selectOptions = {
+    className: props.selectClass,
+    style: props.selectStyle,
+    onChange: props.onChangeSelect,
+    value: props.selectValue,
+  }
+
+  const wrapOptions = {
+    className: props.wrapClass,
+    style: props.wrapStyle,
+  }
+
+  const listOptions = {
+    className: props.listClass,
+    style: props.listStyle,
+  }
+
+  return (
+    <div {...wrapOptions}>
+      <label {...labelWrapOptions}>
+        <span {...labelOptions}>
+          {props.label}
+        </span>
+      </label>
+      <select {...selectOptions}>
+        {props.selectOptions?.map((item: {
+          id: string;
+          name: string;
+          value: string;
+        }) => {
+          return (
+            <option key={item.id} {...listOptions} value={item.value}>{item.name}</option>
+          )
+        })};
+      </select>
+    </div>
+  )
+}
 

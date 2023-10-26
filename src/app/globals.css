@@ -1,41 +1,78 @@
 @import "reset.css";
 
+:root {
+  --black: #1f1f1f;
+  --pink: #f753c0;
+  --blue: #6495ed;
+  --white: #faf0e6;
+  --aqua: #5bc9a4;
+
+  --nmPadSize: 5px;
+  --nmMargSize: 5px;
+  --nmBackColor: #c49566;
+  --nmBorder: 2px solid #afbdcf;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
 label {
+  padding: 10px;
+}
+
+.nm_group {
+  width: 100vw;
+  height: 100vh;
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   align-items: center;
-  padding: 10px;
+  align-content: space-evenly;
 }
 
-.def-label {
-  padding: 10px;
+.nm_label {
+  padding: var(--nmPadSize);
+  margin: var(--nmMargSize);
 }
 
-.rounded-input {
+.nm_item {
+  display: inline-block;
+}
+
+.nm_wrap {
+  padding: 10px;
+  background-color: var(--nmBackColor);
+}
+
+/* ======================= INPUT START ======================= */
+.nm_rounded_input {
   border-radius:10px;
-  border: 1px solid #1f1f1f;
+  border: var(--nmBorder);
   transition: 1s border-color;
-}
-.rounded-input:hover {
-  border: 1px solid #f753c0;
-}
-
-.rounded-input:focus {
-  border: 1px solid #5bc9a4;
+  min-width: 150px;
+  min-height: 20px;
+  padding: var(--nmPadSize);
+  margin: var(--nmMargSize);
 }
 
-/* input elements with type="text" attribute */
-input[type=text] {
-  display:block;
-  /* add top and bottom margin */
-  margin:10px 0;
-  width:100%;
-  max-width: 300px;
-  padding:10px; 
+.nm_rounded_input:hover {
+  /* border: 1px solid var(--pink); */
 }
 
-/* input elements with type="password" attribute */
-input[type=password] {
-  .signup-text-input {
-  
-  }  
+
+/* ======================= INPUT END ========================= */
+
+/* ======================= SELECT START ======================= */
+.nm_rounded_select {
+  border-radius:10px;
+  border: var(--nmBorder);
+  transition: 1s border-color;
+  min-width: 150px;
+  min-height: 32px;
+  padding: var(--nmPadSize);
+  margin: var(--nmMargSize);
 }
+/* ======================= SELECT END ========================= */
