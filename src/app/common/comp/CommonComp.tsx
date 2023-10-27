@@ -22,8 +22,8 @@ export const CCInput = (props: InputType) => {
 
   const debouncedChangeHandler = useCallback(debounce(changeHandler, 400), []);
 
-  const labelWrapOptions = {
-    className: props.labelWrapClass,
+  const labelWrapOptions = { 
+    className: props.labelWrapClass, 
     style: props.labelWrapStyle,
   }  
 
@@ -31,6 +31,16 @@ export const CCInput = (props: InputType) => {
     className: props.labelClass,
     style: props.labelStyle,
   }
+
+  const placeLabelWrapOptions = { 
+    className: props.placeLabelWrapClass,
+    style: props.placeLabelWrapStyle,
+  }  
+
+  const placeLabelOptions = {
+    className: props.placeLabelClass,
+    style: props.placeLabelStyle,
+  }  
 
   const wrapOptions = {
     className: props.wrapClass,
@@ -49,10 +59,19 @@ export const CCInput = (props: InputType) => {
 
   return (
     <div {...wrapOptions}>
-      <label {...labelWrapOptions}>
-        <span {...labelOptions}>{props.label}</span>
-      </label>
+      {props.isLabel && (
+        <label {...labelWrapOptions}>
+          <span {...labelOptions}>{props.label}</span>
+        </label>
+      )}
       <input {...inputOptions} />
+      {props.isLabelAsPlaceholder && (
+        <label {...placeLabelWrapOptions}>
+          <span {...placeLabelOptions}>
+            {props.label}
+          </span>
+        </label>
+      )}
       <span className='highlight'></span>
       <span className='bar'></span>
     </div>

@@ -1,6 +1,10 @@
 import { CSSProperties } from "react";
 
 export type InputType = {
+  placeLabelWrapClass?: string;
+  placeLabelWrapStyle?: React.CSSProperties;
+  placeLabelClass?: string;
+  placeLabelStyle?: React.CSSProperties;
   labelWrapClass?: string;
   labelWrapStyle?: React.CSSProperties;
   labelClass?: string;
@@ -16,7 +20,22 @@ export type InputType = {
   data?: string;
   updateData?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   label?: string;
-}
+  isLabel?: boolean;
+  isLabelAsPlaceholder?: boolean;
+} & (
+  | {
+      isLabel: boolean;
+      isLabelAsPlaceholder?: boolean;
+    }
+  | {
+      isLabel?: boolean;
+      isLabelAsPlaceholder: boolean;
+    }
+  | {
+    isLabel?: boolean;
+    isLabelAsPlaceholder?: boolean;
+  }
+)
 
 export type SelectType = {
   labelWrapClass?: string;
