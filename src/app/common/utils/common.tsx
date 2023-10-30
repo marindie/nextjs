@@ -2,6 +2,7 @@
 
 import { List } from "lodash";
 import { useCallback, useState } from "react";
+import Select, { GroupBase, Props } from 'react-select';
 
 export const useComInput = () => {
   const [ data, setData ] = useState<string>('');
@@ -21,6 +22,17 @@ export const useComSelect = () => {
     setValue(e.target.value);
   }, [setValue]);
 
-  return { data, setData, value, onChangeSelect }
-}
+  const MakeSelect = useCallback(<
+  Option,
+  IsMulti extends boolean = false,
+  Group extends GroupBase<Option> = GroupBase<Option>
+  >(props: Props<Option, IsMulti, Group>) => {
+    return (
+      <Select 
+        {...props}
+      />
+    );
+  }, []);
 
+  return { data, setData, value, onChangeSelect, MakeSelect }
+}

@@ -1,4 +1,5 @@
 import { CSSProperties } from "react";
+import Select, { GroupBase, Props } from 'react-select';
 
 export type InputType = {
   placeLabelWrapClass?: string;
@@ -53,3 +54,4 @@ export type SelectType = {
   listStyle?: React.CSSProperties;  
   onChangeSelect: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }
+
