@@ -32,3 +32,4 @@ export const CSS_GROUP_LISTS: any = [
 ]
 
 export const CSS_DELIMITER = '_';
+export const CSS_SPACE = ' ';

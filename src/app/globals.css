@@ -20,7 +20,12 @@ body {
   height: 100%;
 }
 
-.nm_flex {
+span {
+  font-style: inherit;
+  font-weight: inherit;
+}
+
+.nm.flex {
   width: 100%;
   height: 100%;
   display: flex;
@@ -31,14 +36,13 @@ body {
   align-content: space-evenly;
 }
 
-.nm_flex_wrap {
+.nm.flex_wrap {
   padding: 10px;
   background-color: var(--nmBackColor);
   position: relative;
 }
 
-.nm_flex_wrap .nm_place_label {
-  font-family: arial;
+.nm.flex_wrap.place_label {
   font-size:16px;
   color: var(--labelText);
   padding: 14px;
@@ -51,30 +55,30 @@ body {
   pointer-events: none;
 }
 
-.nm_label {
+.nm.label {
   padding: var(--nmPadSize);
   margin: var(--nmMargSize);
   color: var(--labelText);
 }
 
-.nm_item {
+.nm.item {
   display: inline-block;
 }
 
-.nm_gap {
+.nm.gap {
   padding: var(--nmPadSize);
   margin: var(--nmMargSize);
 }
 
-.nm_fitem_equal {
+.nm.fitem_equal {
   flex: 1
 }
 
-.nm_inline_grid {
+.nm.inline_grid {
   display: inline-grid;
 }
 /* ======================= INPUT START ======================= */
-.nm_rounded_input {
+.nm.rounded_input {
   border-radius: var(--nmBorderRadius);
   border: var(--nmBorder);
   transition: 1s border-color;
@@ -87,11 +91,11 @@ body {
   position:relative;
 }
 
-.nm_rounded_input:hover {
+.nm.rounded_input:hover {
   /* border: 1px solid var(--pink); */
 }
 
-input:focus + .nm_place_label, input:valid + .nm_place_label{
+input:focus + .nm.place_label, input:valid + .nm.place_label{
   font-size: 12px;
   color: var(--labelText);
   top: 10px;
@@ -102,7 +106,7 @@ input:focus + .nm_place_label, input:valid + .nm_place_label{
 /* ======================= INPUT END ========================= */
 
 /* ======================= SELECT START ======================= */
-.nm_rounded_select {
+.nm.rounded_select {
   border-radius: var(--nmBorderRadius);
   border: var(--nmBorder);
   transition: 1s border-color;
@@ -112,3 +116,20 @@ input:focus + .nm_place_label, input:valid + .nm_place_label{
   margin: var(--nmMargSize);
 }
 /* ======================= SELECT END ========================= */
+
+/* ======================= HEAD START ======================= */
+.nm.head_logo {
+  height: auto;
+  background: url("https://media.bazaarvoice.com/Inspire23-StickyBanner-Gradient-2000x400-1.png") center center / cover no-repeat rgb(0, 171, 244);
+  font-size: 1.6rem;
+  opacity: 0.8;
+  text-align: center;
+  transition: all ease 4s;
+  width: 100%;
+}
+.nm.head_img {
+  margin: 0 auto;
+  max-width: 300px;
+  padding: 10px 0;
+}
+/* ======================= HEAD END ========================= */

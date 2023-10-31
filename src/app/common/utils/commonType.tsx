@@ -1,5 +1,6 @@
-import { CSSProperties } from "react";
-import Select, { GroupBase, Props } from 'react-select';
+export type cssType = {
+  cssGroup: string;
+}
 
 export type InputType = {
   placeLabelWrapClass?: string;

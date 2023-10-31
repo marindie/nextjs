@@ -3,12 +3,13 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { CCInput } from "./comp/InputBox";
 import { useComInput, useComSelect } from "./utils/common";
-import { CSS_DELIMITER, CSS_GROUP_LISTS } from "./utils/common-constant";
+import { CSS_DELIMITER, CSS_GROUP_LISTS, CSS_SPACE } from "./utils/commonConstant";
 import makeAnimated from 'react-select/animated';
 import axios from "axios";
 import Select, { ActionMeta, GroupBase, OnChangeValue, Props } from 'react-select';
 import SelectColorful from "./comp/SelectColorful";
 import SelectWithCheckBox from "./comp/SelectWithCheckBox";
+import { useCssStore } from "./utils/zustand";
 
 const animatedComponents = makeAnimated();
 
@@ -26,7 +27,7 @@ export const colorSampleList = [
 ]
 
 export default function Common() {
-  const [ selectedCss, setSelectedCss ] = useState('nm' + CSS_DELIMITER);
+  const { props: css, setCssInfo } = useCssStore();
   const { data: input01, updateInputValue: setInput01 } = useComInput();
   const { data: input02, updateInputValue: setInput02 } = useComInput();
   const { data: input03, updateInputValue: setInput03 } = useComInput();
@@ -86,7 +87,7 @@ export default function Common() {
   useLayoutEffect(() => {
     let index = 0;
     setCssData(CSS_GROUP_LISTS);
-    cssData && setSelectedCss(cssData[0].value + CSS_DELIMITER);
+    cssData && setCssInfo({cssGroup : cssData[0].value + CSS_SPACE});
     searchResult && axios.get('https://jsonplaceholder.typicode.com/comments')
       .then((res) => {
         const newData = res.data.map((e: any) => {
@@ -121,53 +122,55 @@ export default function Common() {
         
   return (
     <>
-      {console.log(selectVal02)}
+      <>
+        {console.log(selectVal02)}
+      </>
       <div>
-        <div className={selectedCss + 'flex_wrap'}>
-          <label className={selectedCss + 'gap ' + selectedCss + 'inline_grid'}>
-            <span className={selectedCss + 'label'}>스타일 변경</span>
+        <div className={css.cssGroup + 'flex_wrap'}>
+          <label className={css.cssGroup + 'gap ' + css.cssGroup + 'inline_grid'}>
+            <span className={css.cssGroup + 'label'}>스타일 변경</span>
           </label>
           <SelectColorful optionList={CSS_GROUP_LISTS.map((e: any) => {e.color = colorSampleList[Number(e.id.slice(-2)) % colorSampleList.length | 0]; return e;})} instanceId='cssGroupList' onChange={setCssValue} />
         </div>
       </div>
-      <div className={selectedCss + 'flex'}>
+      <div className={css.cssGroup + 'flex'}>
         {/* 라벨이 없는 기본 */}
         <CCInput 
           inputType='text'
           data={input01}
           updateData={setInput01}
-          wrapClass={selectedCss + 'flex_wrap'}
+          wrapClass={css.cssGroup + 'flex_wrap'}
           label={'User ID'}
-          labelWrapClass={selectedCss + 'item'}
-          labelClass={selectedCss + 'label'}
-          inputClass={selectedCss + 'rounded_input'}
+          labelWrapClass={css.cssGroup + 'item'}
+          labelClass={css.cssGroup + 'label'}
+          inputClass={css.cssGroup + 'rounded_input'}
         />
         {/* Inline 형태의 라벨 */}
         <CCInput 
           inputType='text'
           data={input02} updateData={setInput02}
-          wrapClass={selectedCss + 'flex_wrap'}
+          wrapClass={css.cssGroup + 'flex_wrap'}
           label={'Name'}
-          labelWrapClass={selectedCss + 'item'}
-          labelClass={selectedCss + 'label'}
-          inputClass={selectedCss + 'rounded_input'}
+          labelWrapClass={css.cssGroup + 'item'}
+          labelClass={css.cssGroup + 'label'}
+          inputClass={css.cssGroup + 'rounded_input'}
           isLabel={true}
         />        
         {/* Placeholder 형태의 라벨 */}
         <CCInput 
           inputType='text'
           data={input03} updateData={setInput03}
-          wrapClass={selectedCss + 'flex_wrap'}
+          wrapClass={css.cssGroup + 'flex_wrap'}
           label={'Name'}
-          placeLabelWrapClass={selectedCss + 'place_label'}
-          inputClass={selectedCss + 'rounded_input'}
+          placeLabelWrapClass={css.cssGroup + 'place_label'}
+          inputClass={css.cssGroup + 'rounded_input'}
           isLabelAsPlaceholder={true}
         />
       </div>
-      <div className={selectedCss + 'flex'}>
-        <div className={selectedCss + 'gap ' + selectedCss + 'inline_grid ' + selectedCss + 'fitem_equal'}>
+      <div className={css.cssGroup + 'flex'}>
+        <div className={css.cssGroup + 'gap ' + css.cssGroup + 'inline_grid ' + css.cssGroup + 'fitem_equal'}>
           {/* 멀티 셀렉드 X 클릭 애니메이션 */}
-          <span className={selectedCss + 'gap'} >멀티 셀렉트 & X 버튼 클릭시 애니메이션</span>
+          <span className={css.cssGroup + 'gap'} >멀티 셀렉트 & X 버튼 클릭시 애니메이션</span>
           <MakeSelect
             closeMenuOnSelect={false}
             components={animatedComponents}
@@ -178,12 +181,12 @@ export default function Common() {
             value={selectVal01}
           />
         </div>
-        <div className={selectedCss + 'gap ' + selectedCss + 'inline_grid ' + selectedCss + 'fitem_equal'}>
-          <span className={selectedCss + 'gap'} >기본 Select</span>
-          <SelectWithCheckBox {...defaultSelectOptions} optionList={searchResult.map(e => {e.value = e.email; e.label = e.email; return e})} instanceId={'selectDefault'} onChange={setSelectVal02} value={selectVal02}/>
+        <div className={css.cssGroup + 'gap ' + css.cssGroup + 'inline_grid ' + css.cssGroup + 'fitem_equal'}>
+          <span className={css.cssGroup + 'gap'} >기본 Select</span>
+          <SelectWithCheckBox {...defaultSelectOptions} optionList={searchResult.map(e => {e.value = e.email; e.label = e.email; return e})} instanceId={'selectDefault'} onChange={setSelectVal02} value={selectVal02} />
         </div>
-        <div className={selectedCss + 'gap ' + selectedCss + 'inline_grid ' + selectedCss + 'fitem_equal'}>
-          <span className={selectedCss + 'gap'} >컬러풀한 Select</span>
+        <div className={css.cssGroup + 'gap ' + css.cssGroup + 'inline_grid ' + css.cssGroup + 'fitem_equal'}>
+          <span className={css.cssGroup + 'gap'} >컬러풀한 Select</span>
           <SelectColorful isMulti optionList={searchResult} instanceId='colorfulSelect' onChange={setSelectVal03} value={selectVal03} />
         </div>
       </div>

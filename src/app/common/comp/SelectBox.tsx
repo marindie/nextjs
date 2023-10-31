@@ -1,4 +1,4 @@
-import { SelectType } from "../common-type";
+import { SelectType } from "../utils/commonType";
 
 export const CCSelect = (props: SelectType) => {
 

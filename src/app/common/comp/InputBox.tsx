@@ -2,7 +2,7 @@
 
 import { debounce } from "lodash";
 import { useCallback } from "react";
-import { InputType } from "../common-type";
+import { InputType } from "../utils/commonType";
 
 export const CCInput = (props: InputType) => {
   const changeHandler = (event: any) => {
