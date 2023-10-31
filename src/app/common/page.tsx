@@ -1,24 +1,39 @@
 "use client"
 
-import { useLayoutEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { CCInput } from "./comp/InputBox";
 import { useComInput, useComSelect } from "./utils/common";
 import { CSS_DELIMITER, CSS_GROUP_LISTS } from "./utils/common-constant";
 import makeAnimated from 'react-select/animated';
 import axios from "axios";
+import Select, { ActionMeta, GroupBase, OnChangeValue, Props } from 'react-select';
 import SelectColorful from "./comp/SelectColorful";
 import SelectWithCheckBox from "./comp/SelectWithCheckBox";
 
 const animatedComponents = makeAnimated();
+
+export const colorSampleList = [
+  '#00B8D9',
+  '#0052CC',
+  '#5243AA',
+  '#FF5630',
+  '#FF8B00',
+  '#FFC400',
+  '#36B37E',
+  '#00875A',
+  '#253858',
+  '#666666',  
+]
 
 export default function Common() {
   const [ selectedCss, setSelectedCss ] = useState('nm' + CSS_DELIMITER);
   const { data: input01, updateInputValue: setInput01 } = useComInput();
   const { data: input02, updateInputValue: setInput02 } = useComInput();
   const { data: input03, updateInputValue: setInput03 } = useComInput();
-  const { data: select01, setData: setSelect01, MakeSelect } = useComSelect();
-  const { data: select02, setData: setSelect02 } = useComSelect();
-  const { data: cssData, setData: setCssData, value: cssValue, onChangeSelect: selChange01 } = useComSelect();
+  const { data: select01, setData: setSelect01, value: selectVal01, onChangeSelect: setSelectVal01, MakeSelect } = useComSelect();
+  const { data: select02, setData: setSelect02, value: selectVal02, onChangeSelect: setSelectVal02 } = useComSelect();
+  const { data: select03, setData: setSelect03, value: selectVal03, onChangeSelect: setSelectVal03 } = useComSelect();
+  const { data: cssData, setData: setCssData, value: cssValue, onChangeSelect: setCssValue } = useComSelect();
   const [ searchResult, setSearchResult ] = useState<Array<any>>([]);
 
   const [isClearable, setIsClearable] = useState(true);
@@ -38,28 +53,81 @@ export default function Common() {
     setIsLoading,
     setIsRtl,
   };
+  
 
-
+  // const checkBoxArray = [
+  //   {
+  //     value: isClearable,
+  //     setValue: setIsClearable,
+  //     text: 'Clearable',
+  //   },
+  //   {
+  //     value: isSearchable,
+  //     setValue: setIsSearchable,
+  //     text: 'Searchable',
+  //   },
+  //   {
+  //     value: isDisabled,
+  //     setValue: setIsDisabled,
+  //     text: 'Disabled',
+  //   },
+  //   {
+  //     value: isLoading,
+  //     setValue: setIsLoading,
+  //     text: 'Loading',
+  //   },
+  //   {
+  //     value: isRtl,
+  //     setValue: setIsRtl,
+  //     text: 'RTL',
+  //   },
+  // ]
 
   useLayoutEffect(() => {
+    let index = 0;
     setCssData(CSS_GROUP_LISTS);
     cssData && setSelectedCss(cssData[0].value + CSS_DELIMITER);
-    axios.get('https://jsonplaceholder.typicode.com/comments')
+    searchResult && axios.get('https://jsonplaceholder.typicode.com/comments')
       .then((res) => {
-        setSearchResult(res.data);
+        const newData = res.data.map((e: any) => {
+          e.value = e.email;
+          e.label = e.email;
+          e.color = colorSampleList[index++ % colorSampleList.length | 0];
+          return e});
+        setSearchResult(newData);
+        setSelectVal01(newData[0]);
+        setSelectVal02(newData[0]);
+        setSelectVal03(newData[0]);
       })
       .catch();
+      
+    }, [cssData]);
 
-  }, [cssData]);
-
+  function useTraceUpdate(props: any) {
+    const prev = useRef(props);
+    useEffect(() => {
+      const changedProps = Object.entries(props).reduce((ps: any, [k, v]) => {
+        if (prev.current[k] !== v) {
+          ps[k] = [prev.current[k], v];
+        }
+        return ps;
+      }, {});
+      if (Object.keys(changedProps).length > 0) {
+        console.log('Changed props:', changedProps);
+      }
+      prev.current = props;
+    });
+  }
+        
   return (
     <>
+      {console.log(selectVal02)}
       <div>
         <div className={selectedCss + 'flex_wrap'}>
           <label className={selectedCss + 'gap ' + selectedCss + 'inline_grid'}>
             <span className={selectedCss + 'label'}>스타일 변경</span>
           </label>
-          <SelectColorful optionList={CSS_GROUP_LISTS} instanceId='cssGroupList' />
+          <SelectColorful optionList={CSS_GROUP_LISTS.map((e: any) => {e.color = colorSampleList[Number(e.id.slice(-2)) % colorSampleList.length | 0]; return e;})} instanceId='cssGroupList' onChange={setCssValue} />
         </div>
       </div>
       <div className={selectedCss + 'flex'}>
@@ -106,17 +174,20 @@ export default function Common() {
             isMulti
             options={searchResult?.map(e => {e.value = e.email; e.label = e.email; return e})}
             instanceId={'wony'}
+            onChange={setSelectVal01}
+            value={selectVal01}
           />
         </div>
         <div className={selectedCss + 'gap ' + selectedCss + 'inline_grid ' + selectedCss + 'fitem_equal'}>
           <span className={selectedCss + 'gap'} >기본 Select</span>
-          <SelectWithCheckBox {...defaultSelectOptions} optionList={searchResult.map(e => {e.value = e.email; e.label = e.email; return e})} instanceId={'selectDefault'} />
+          <SelectWithCheckBox {...defaultSelectOptions} optionList={searchResult.map(e => {e.value = e.email; e.label = e.email; return e})} instanceId={'selectDefault'} onChange={setSelectVal02} value={selectVal02}/>
         </div>
         <div className={selectedCss + 'gap ' + selectedCss + 'inline_grid ' + selectedCss + 'fitem_equal'}>
           <span className={selectedCss + 'gap'} >컬러풀한 Select</span>
-          <SelectColorful isMulti optionList={searchResult.map(e => {e.value = e.email; e.label = e.email; return e})} instanceId='colorfulSelect' />
+          <SelectColorful isMulti optionList={searchResult} instanceId='colorfulSelect' onChange={setSelectVal03} value={selectVal03} />
         </div>
       </div>
+      <pre>{JSON.stringify(cssValue, null, 2)}</pre>
       <pre>{JSON.stringify(searchResult, null, 2)}</pre>
     </>
   )

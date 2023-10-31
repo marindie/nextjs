@@ -1,4 +1,7 @@
 import { useComSelect } from "../utils/common";
+import makeAnimated from 'react-select/animated';
+
+const animatedComponents = makeAnimated();
 
 const Checkbox = ({ children, ...props }: JSX.IntrinsicElements['input']) => (
   <label style={{ marginRight: '1em' }}>
@@ -18,16 +21,19 @@ const SelectWithCheckBox = (props : {
   setIsLoading: (e: boolean) => void;
   setIsDisabled: (e: boolean) => void;
   setIsSearchable: (e: boolean) => void;
+  checkBoxList?: Array<any>;
   optionList: Array<any>;
   instanceId: string;
+  value?: any;
+  onChange: <Option,>(option: Option | null) => void;
 }) => {
-  const { data: samSelect01, setData: setSamSelect01, MakeSelect } = useComSelect();
+  const { MakeSelect } = useComSelect();
   return (
     <>
       <MakeSelect
-        className="basic-single"
-        classNamePrefix="select"
-        defaultValue={props.optionList ? props.optionList[0] : ''}
+        // className="basic-single"
+        // classNamePrefix="select"
+        defaultValue={props.optionList[0]}
         isDisabled={props.isDisabled}
         isLoading={props.isLoading}
         isClearable={props.isClearable}
@@ -36,6 +42,8 @@ const SelectWithCheckBox = (props : {
         name="color"
         options={props.optionList}
         instanceId={props.instanceId}
+        onChange={props.onChange}
+        value={props.value}
       />
 
       <div
@@ -47,33 +55,43 @@ const SelectWithCheckBox = (props : {
           marginTop: '1em',
         }}
       >
-        <Checkbox
-          checked={props.isClearable}
-          onChange={() => props.setIsClearable(!props.isClearable)}
-        >
-          Clearable
-        </Checkbox>
-        <Checkbox
-          checked={props.isSearchable}
-          onChange={() => props.setIsSearchable(!props.isSearchable)}
-        >
-          Searchable
-        </Checkbox>
-        <Checkbox
-          checked={props.isDisabled}
-          onChange={() => props.setIsDisabled(!props.isDisabled)}
-        >
-          Disabled
-        </Checkbox>
-        <Checkbox
-          checked={props.isLoading}
-          onChange={() => props.setIsLoading(!props.isLoading)}
-        >
-          Loading
-        </Checkbox>
-        <Checkbox checked={props.isRtl} onChange={() => props.setIsRtl(!props.isRtl)}>
-          RTL
-        </Checkbox>
+      <Checkbox
+        checked={props.isClearable}
+        onChange={() => props.setIsClearable(!props.isClearable)}
+      >
+        Clearable
+      </Checkbox>        
+      <Checkbox
+        checked={props.isSearchable}
+        onChange={() => props.setIsSearchable(!props.isSearchable)}
+      >
+        Searchable
+      </Checkbox>
+      <Checkbox
+        checked={props.isDisabled}
+        onChange={() => props.setIsDisabled(!props.isDisabled)}
+      >
+        Disabled
+      </Checkbox>
+      <Checkbox
+        checked={props.isLoading}
+        onChange={() => props.setIsLoading(!props.isLoading)}
+      >
+        Loading
+      </Checkbox>
+      <Checkbox checked={props.isRtl} onChange={() => props.setIsRtl(!props.isRtl)}>
+        RTL
+      </Checkbox>
+      {props.checkBoxList && props.checkBoxList.map((e, idx) => {
+        return (
+          <Checkbox
+            key={idx}
+            checked={e.value}
+            onChange={() => e.setValue(!e.value)}
+          >
+            {e.text}
+          </Checkbox>
+      )})}
       </div>      
     </>      
   )

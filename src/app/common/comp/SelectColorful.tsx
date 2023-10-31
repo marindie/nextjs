@@ -1,5 +1,5 @@
 import chroma from "chroma-js";
-import { StylesConfig } from "react-select";
+import { ActionMeta, StylesConfig } from "react-select";
 import { useComSelect } from "@/app/common/utils/common";
 
 interface ColourOption {
@@ -9,19 +9,6 @@ interface ColourOption {
   readonly isFixed?: boolean;
   readonly isDisabled?: boolean;
 }
-
-export const colorSampleList = [
-  '#00B8D9',
-  '#0052CC',
-  '#5243AA',
-  '#FF5630',
-  '#FF8B00',
-  '#FFC400',
-  '#36B37E',
-  '#00875A',
-  '#253858',
-  '#666666',  
-]
 
 export const colourStyles: StylesConfig<ColourOption, true> = {
   control: (styles) => ({ ...styles, backgroundColor: 'white' }),
@@ -81,19 +68,23 @@ const SelectColorful = (props: {
   isMulti?: true,
   optionList: Array<any>,
   instanceId: string,
+  placeholder?: string,
+  onChange?: <Option,>(option: Option | null) => void;
+  value?: any,
 }) => {
   let index = 0;
-  const { data: select01, setData: setSelect01, MakeSelect } = useComSelect();
-  
+  const { MakeSelect } = useComSelect();
   return (
     <MakeSelect
+      defaultValue={props.optionList ? props.optionList[0] : ''}
       closeMenuOnSelect={ !props.isMulti }
       isMulti={props.isMulti}
-      options={props.optionList.map(e => {
-        e.color = colorSampleList[index++ % colorSampleList.length | 0];
-        return e})}
+      options={props.optionList}
       styles={colourStyles}
       instanceId={props.instanceId}
+      placeholder={props.placeholder}
+      onChange={props.onChange}
+      value={props.value}
     />
   )
 }

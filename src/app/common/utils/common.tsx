@@ -1,8 +1,7 @@
 "use client"
 
-import { List } from "lodash";
 import { useCallback, useState } from "react";
-import Select, { GroupBase, Props } from 'react-select';
+import Select, { ActionMeta, GroupBase, OnChangeValue, Props } from 'react-select';
 
 export const useComInput = () => {
   const [ data, setData ] = useState<string>('');
@@ -18,8 +17,8 @@ export const useComSelect = () => {
   const [ data , setData ] = useState<any>();
   const [ value , setValue ] = useState<any>();
 
-  const onChangeSelect = useCallback((e: React.ChangeEvent<HTMLSelectElement>) => {
-    setValue(e.target.value);
+  const onChangeSelect = useCallback((option: any) => {
+    setValue(option);
   }, [setValue]);
 
   const MakeSelect = useCallback(<
