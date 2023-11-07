@@ -1,11 +1,10 @@
-import { SelectType } from "../utils/commonType";
+import { SelectType } from '../utils/commonType'
 
 export const CCSelect = (props: SelectType) => {
-
   const labelWrapOptions = {
     className: props.labelWrapClass,
     style: props.labelWrapStyle,
-  }  
+  }
 
   const labelOptions = {
     className: props.labelClass,
@@ -32,20 +31,21 @@ export const CCSelect = (props: SelectType) => {
   return (
     <div {...wrapOptions}>
       <label {...labelWrapOptions}>
-        <span {...labelOptions}>
-          {props.label}
-        </span>
+        <span {...labelOptions}>{props.label}</span>
       </label>
       <select {...selectOptions}>
-        {props.selectOptions?.map((item: {
-          id: string;
-          name: string;
-          value: string;
-        }) => {
+        {props.selectOptions?.map((item: { id: string; name: string; value: string }) => {
           return (
-            <option key={item.id} {...listOptions} value={item.value}>{item.name}</option>
+            <option
+              key={item.id}
+              {...listOptions}
+              value={item.value}
+            >
+              {item.name}
+            </option>
           )
-        })};
+        })}
+        ;
       </select>
     </div>
   )

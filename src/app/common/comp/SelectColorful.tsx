@@ -1,20 +1,20 @@
-import chroma from "chroma-js";
-import { ActionMeta, StylesConfig } from "react-select";
-import { useComSelect } from "@/app/common/utils/common";
+import { useComSelect } from '@/app/common/utils/common'
+import chroma from 'chroma-js'
+import { StylesConfig } from 'react-select'
 
 interface ColourOption {
-  readonly value: string;
-  readonly label: string;
-  readonly color: string;
-  readonly isFixed?: boolean;
-  readonly isDisabled?: boolean;
+  readonly value: string
+  readonly label: string
+  readonly color: string
+  readonly isFixed?: boolean
+  readonly isDisabled?: boolean
 }
 
 export const colourStyles: StylesConfig<ColourOption, true> = {
   control: (styles) => ({ ...styles, backgroundColor: 'white' }),
   singleValue: (styles) => ({ ...styles, color: 'pink' }),
   option: (styles, { data, isDisabled, isFocused, isSelected }) => {
-    const color = chroma(data.color);
+    const color = chroma(data.color)
     return {
       ...styles,
       backgroundColor: isDisabled
@@ -41,14 +41,14 @@ export const colourStyles: StylesConfig<ColourOption, true> = {
             : color.alpha(0.3).css()
           : undefined,
       },
-    };
+    }
   },
   multiValue: (styles, { data }) => {
-    const color = chroma(data.color);
+    const color = chroma(data.color)
     return {
       ...styles,
       backgroundColor: color.alpha(0.1).css(),
-    };
+    }
   },
   multiValueLabel: (styles, { data }) => ({
     ...styles,
@@ -62,22 +62,22 @@ export const colourStyles: StylesConfig<ColourOption, true> = {
       color: 'white',
     },
   }),
-};
+}
 
 const SelectColorful = (props: {
-  isMulti?: true,
-  optionList: Array<any>,
-  instanceId: string,
-  placeholder?: string,
-  onChange?: <Option,>(option: Option | null) => void;
-  value?: any,
+  isMulti?: true
+  optionList: Array<any>
+  instanceId: string
+  placeholder?: string
+  onChange?: <Option>(option: Option | null) => void
+  value?: any
 }) => {
-  let index = 0;
-  const { MakeSelect } = useComSelect();
+  const index = 0
+  const { MakeSelect } = useComSelect()
   return (
     <MakeSelect
       defaultValue={props.optionList ? props.optionList[0] : ''}
-      closeMenuOnSelect={ !props.isMulti }
+      closeMenuOnSelect={!props.isMulti}
       isMulti={props.isMulti}
       options={props.optionList}
       styles={colourStyles}
@@ -89,4 +89,4 @@ const SelectColorful = (props: {
   )
 }
 
-export default SelectColorful;
+export default SelectColorful

@@ -1,46 +1,46 @@
-"use client"
+'use client'
 
-import { debounce } from "lodash";
-import { useCallback } from "react";
-import { InputType } from "../utils/commonType";
+import { debounce } from 'lodash'
+import { useCallback } from 'react'
+import { InputType } from '../utils/commonType'
 
 export const CCInput = (props: InputType) => {
   const changeHandler = (event: any) => {
-    const searchCriteria = event.target.value.toLowerCase();
-    if (searchCriteria !== "") {
+    const searchCriteria = event.target.value.toLowerCase()
+    if (searchCriteria !== '') {
       const searchResult = props.dataList.filter((item: any) => {
         return (
           item.first.toLowerCase().search(searchCriteria) !== -1 ||
           item.last.toLowerCase().search(searchCriteria) !== -1
-        );
-      });
-      props.setDataList(searchResult);
+        )
+      })
+      props.setDataList(searchResult)
     } else {
-      props.setDataList(props.dataList);
+      props.setDataList(props.dataList)
     }
-  };
+  }
 
-  const debouncedChangeHandler = useCallback(debounce(changeHandler, 400), []);
+  const debouncedChangeHandler = useCallback(debounce(changeHandler, 400), [])
 
-  const labelWrapOptions = { 
-    className: props.labelWrapClass, 
+  const labelWrapOptions = {
+    className: props.labelWrapClass,
     style: props.labelWrapStyle,
-  }  
+  }
 
   const labelOptions = {
     className: props.labelClass,
     style: props.labelStyle,
   }
 
-  const placeLabelWrapOptions = { 
+  const placeLabelWrapOptions = {
     className: props.placeLabelWrapClass,
     style: props.placeLabelWrapStyle,
-  }  
+  }
 
   const placeLabelOptions = {
     className: props.placeLabelClass,
     style: props.placeLabelStyle,
-  }  
+  }
 
   const wrapOptions = {
     className: props.wrapClass,
@@ -67,13 +67,11 @@ export const CCInput = (props: InputType) => {
       <input {...inputOptions} />
       {props.isLabelAsPlaceholder && (
         <label {...placeLabelWrapOptions}>
-          <span {...placeLabelOptions}>
-            {props.label}
-          </span>
+          <span {...placeLabelOptions}>{props.label}</span>
         </label>
       )}
       <span className='highlight'></span>
       <span className='bar'></span>
     </div>
-  );
-};
+  )
+}
