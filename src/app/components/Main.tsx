@@ -1,7 +1,13 @@
+'use client'
+
+import { useCssStore } from '../common/utils/zustand'
+
 const Main = () => {
+  const { props: css } = useCssStore()
+
   return (
     <main>
-      <div>Main</div>
+      <div>main</div>
     </main>
   )
 }

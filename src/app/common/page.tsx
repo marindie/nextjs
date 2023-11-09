@@ -7,7 +7,7 @@ import { CCInput } from './comp/InputBox'
 import SelectColorful from './comp/SelectColorful'
 import SelectWithCheckBox from './comp/SelectWithCheckBox'
 import { useComInput, useComSelect } from './utils/common'
-import { CSS_GROUP_LISTS, CSS_SPACE } from './utils/commonConstant'
+import { CSS_DELIMITER, CSS_GROUP_LISTS } from './utils/commonConstant'
 import { useCssStore } from './utils/zustand'
 
 const animatedComponents = makeAnimated()
@@ -106,7 +106,7 @@ export default function Common() {
   useLayoutEffect(() => {
     let index = 0
     setCssData(CSS_GROUP_LISTS)
-    cssData && setCssInfo({ cssGroup: cssData[0].value + CSS_SPACE })
+    cssData && setCssInfo({ cssGroup: cssData[0].value + CSS_DELIMITER })
     searchResult &&
       axios
         .get('https://jsonplaceholder.typicode.com/comments')

@@ -125,41 +125,69 @@ input:valid + .nm.place_label {
 /* ======================= SELECT END ========================= */
 
 /* ======================= HEAD START ======================= */
-.nm.head_logo {
-  color: rgb(255, 255, 255);
-  background: url(https://media.bazaarvoice.com/Inspire23-StickyBanner-Gradient-2000x400-1.png)
-    center center / cover no-repeat rgb(0, 171, 244);
-  height: auto;
-  font-size: 1.6rem;
-  opacity: 0.8;
-  text-align: center;
-  transition: all ease 4s;
-  width: 100%;
-  background-color: #ff4b78;
-  opacity: 1;
-  z-index: 100;
-}
-.nm.head_img {
-  margin: 0 auto;
-  max-width: 300px;
-  padding: 10px 0;
+@media screen and (min-width: 1216px) {
+  .nm.header {
+    position: relative;
+    background: #fff;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    transition: transform 0.25s ease-in;
+
+    .nm.container {
+      margin: 0 auto;
+      max-width: 1280px;
+      padding: 0 20px;
+      position: relative;
+      z-index: 2;
+    }
+  }
+  .nm.head_logo {
+    color: rgb(255, 255, 255);
+    background: url(https://media.bazaarvoice.com/Inspire23-StickyBanner-Gradient-2000x400-1.png)
+      center center / cover no-repeat rgb(0, 171, 244);
+    height: auto;
+    font-size: 1.6rem;
+    opacity: 0.8;
+    text-align: center;
+    transition: all ease 4s;
+    width: 100%;
+    background-color: #ff4b78;
+    opacity: 1;
+    z-index: 100;
+  }
+  .nm.head_img {
+    margin: 0 auto;
+    max-width: 300px;
+    padding: 10px 0;
+  }
+
+  .nm.head_logo strong {
+    color: inherit;
+    font-family: 'gibsonsemibold', Helvetica, Arial, sans-serif;
+    margin-right: 3px;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  .nm.head_logo a {
+    color: inherit;
+    display: inline-block;
+    font-family: 'gibson', Helvetica, Arial, sans-serif;
+    font-size: 1.6rem;
+    margin-left: 4px;
+    padding: 11px 0;
+    position: relative;
+  }
+  .nm.columns {
+    display: flex;
+    margin-left: -10px;
+    margin-right: -10px;
+  }
 }
 
-.nm.head_logo strong {
-  color: inherit;
-  font-family: 'gibsonsemibold', Helvetica, Arial, sans-serif;
-  margin-right: 3px;
-  font-size: 1rem;
-  font-weight: bold;
-}
-
-.nm.head_logo a {
-  color: inherit;
-  display: inline-block;
-  font-family: 'gibson', Helvetica, Arial, sans-serif;
-  font-size: 1.6rem;
-  margin-left: 4px;
-  padding: 11px 0;
-  position: relative;
-}
 /* ======================= HEAD END ========================= */
+
+/* ======================= CONTAINER START ========================= */
+/* ======================= CONTAINER END ========================= */
