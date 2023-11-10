@@ -1009,21 +1009,21 @@ const Header = () => {
               <div className={css.cssGroup + 'sidelinks'}>
                 <div className={css.cssGroup + 'flex'}>
                   <div className={css.cssGroup + 'order01'}>
-                    <div className='same-mobile bvheader-aux-menu'>
-                      <div className='menu-container'>
+                    <div className={css.cssGroup + 'contact'}>
+                      <div className={css.cssGroup + 'menu_container'}>
                         <ul
                           id='menu-aux-menu'
-                          className='menu'
+                          className={css.cssGroup + 'menu'}
                         >
                           <li
                             id='menu-item-45923'
-                            className='menu-item menu-item-type-post_type menu-item-object-page menu-item-45923'
+                            className={css.cssGroup + 'menu_item'}
                           >
                             <a href='https://www.bazaarvoice.com/contact/'>Contact us</a>
                           </li>
                           <li
                             id='menu-item-45924'
-                            className='menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-42630 current_page_item menu-item-45924'
+                            className={css.cssGroup + 'menu_item'}
                           >
                             <a
                               href='https://www.bazaarvoice.com/pricing/'
@@ -1038,16 +1038,16 @@ const Header = () => {
                   </div>
 
                   <div className={css.cssGroup + 'order02'}>
-                    <div className='dropdown-filter same-mobile bvheader-login-menu'>
-                      <span className='dropdown-filter-selection'>Log in</span>
-                      <div className='filter-fields'>
+                    <div className={css.cssGroup + 'login'}>
+                      <span className={css.cssGroup + 'selection'}>Log in</span>
+                      <div className={css.cssGroup + 'filter'}>
                         <ul
                           id='menu-login'
-                          className='menu'
+                          className={css.cssGroup + 'menu'}
                         >
                           <li
                             id='menu-item-370'
-                            className='menu-item menu-item-type-custom menu-item-object-custom menu-item-370'
+                            className={css.cssGroup + 'menu_item'}
                           >
                             <a
                               target='_blank'
@@ -1059,7 +1059,7 @@ const Header = () => {
                           </li>
                           <li
                             id='menu-item-3802'
-                            className='menu-item menu-item-type-custom menu-item-object-custom menu-item-3802'
+                            className={css.cssGroup + 'menu_item'}
                           >
                             <a
                               target='_blank'
@@ -1074,16 +1074,16 @@ const Header = () => {
                     </div>
                   </div>
                   <div className={css.cssGroup + 'order03'}>
-                    <div className='dropdown-filter same-mobile bvheader-language'>
-                      <span className='dropdown-filter-selection'>EN</span>
-                      <div className='filter-fields'>
+                    <div className={css.cssGroup + 'language'}>
+                      <span className={css.cssGroup + 'selection'}>EN</span>
+                      <div className={css.cssGroup + 'filter'}>
                         <ul
                           id='menu-language-toggle'
-                          className='menu'
+                          className={css.cssGroup + 'menu'}
                         >
                           <li
                             id='menu-item-87'
-                            className='menu-item menu-item-type-custom menu-item-object-custom current menu-item-87'
+                            className={css.cssGroup + 'menu_item'}
                           >
                             <a
                               href='/'
@@ -1094,7 +1094,7 @@ const Header = () => {
                           </li>
                           <li
                             id='menu-item-89'
-                            className='menu-item menu-item-type-custom menu-item-object-custom menu-item-89'
+                            className={css.cssGroup + 'menu_item'}
                           >
                             <a
                               href='/fr/'
@@ -1105,7 +1105,7 @@ const Header = () => {
                           </li>
                           <li
                             id='menu-item-90'
-                            className='menu-item menu-item-type-custom menu-item-object-custom menu-item-90'
+                            className={css.cssGroup + 'menu_item'}
                           >
                             <a
                               href='/de/'

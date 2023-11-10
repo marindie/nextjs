@@ -161,12 +161,13 @@ input:valid + .nm_place_label {
               align-items: center;
               border: 0;
               a {
-                margin: 3.5rem 0.8rem;
+                margin: 2.5rem 0.5rem;
                 padding: 0;
                 width: auto;
                 color: #002e6e;
                 font-size: 1rem;
-                line-height: 1rem;
+                font-weight: bold;
+                line-height: 2rem;
                 position: relative;
                 transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
                 font-family: 'gibsonsemibold', Helvetica, Arial, sans-serif;
@@ -275,60 +276,145 @@ input:valid + .nm_place_label {
         .nm_order01 {
           order: 1;
           width: auto;
+          .nm_contact {
+            position: relative;
+            text-align: center;
+            margin-right: 0.5rem !important;
+            padding: 0rem 0.18rem 0 0.5rem;
+            .nm_menu_container {
+              margin-top: 0.5rem;
+              text-align: center;
+              .nm_menu {
+                display: flex;
+                justify-content: space-evenly;
+                list-style: none;
+                .nm_menu_item {
+                  margin-right: 1rem;
+                  position: relative;
+                }
+              }
+            }
+          }
         }
         .nm_order02 {
           order: 2;
+          .nm_login {
+            float: initial;
+            margin-top: -0.3rem !important;
+            padding-top: 0.7rem;
+            text-align: left;
+            ::before {
+              bottom: 0;
+              top: auto;
+              height: auto;
+              background: #fff;
+              content: '';
+              left: 0;
+              position: absolute;
+              transform: none;
+              width: 100%;
+              z-index: 1002;
+            }
+            .nm_selection {
+              position: relative;
+              z-index: 1003;
+              font-style: inherit;
+              font-weight: inherit;
+            }
+            .nm_filter {
+              border-radius: 0.5rem;
+              transform: translateX(-50%);
+              right: auto;
+              margin-top: 0.5rem;
+              padding: 0.5rem 0 !important;
+              min-width: 10rem;
+              margin-top: 0.5rem;
+              border: 0.1rem solid #dadada;
+              box-shadow: none !important;
+              margin-left: 0;
+              transition-property: opacity;
+              opacity: 0;
+              background: #ffffff;
+              box-sizing: border-box;
+              position: absolute;
+              z-index: 1001;
+              pointer-events: none;
+              transform-origin: 0 100%;
+              will-change: transform, opacity;
+              transition-duration: 0.25s;
+              .nm_menu {
+                list-style: none;
+                .nm_menu_item {
+                  font-family: 'gibsonsemibold', Helvetica, Arial, sans-serif;
+                  width: 100%;
+                  color: #05a690;
+                  font-size: 14px;
+                  text-align: left;
+                  box-sizing: border-box;
+                }
+              }
+            }
+          }
         }
         .nm_order03 {
           order: 3;
-          width: auto;
-        }
-      }
-      .nm_signup {
-        border: 0.1rem solid #4c60f6;
-        border-radius: 3rem;
-        margin-top: 0;
-        margin-right: 1.2rem;
-        width: auto;
-        position: relative;
-        order: 4;
-        color: #7b8694;
-        display: flex;
-        .nm_signup_icon {
-          height: 1.5rem;
-          width: 1.5rem;
-          left: 0.5rem;
-          top: 0.45rem;
-          position: absolute;
-        }
-        .nm_signup_email {
-          border-bottom: 0;
-          border: none;
-          display: block;
-          font-family: 'gibson', Helvetica, Arial, sans-serif;
-          font-size: 0.8rem;
-          padding-left: 1.5rem;
-          padding-right: 0.5rem;
-          transition: all 0.3s ease;
-          width: 7rem;
-          margin: 0.1rem 1rem 0.1rem;
-        }
-        .nm_signup_btn {
-          border-radius: 23px;
-          border-bottom-left-radius: 0;
-          border-top-left-radius: 0;
-          width: auto;
-          margin: 0;
-          padding: 0.5rem 0.5rem !important;
-          border: 1px solid #4c60f6;
-          background: #4c60f6;
-          display: inline-block;
-          color: #fff;
-          font-family: 'gibsonsemibold', Helvetica, Arial, sans-serif;
-          text-align: center;
-          font-size: 1rem;
-          line-height: 1rem;
-          cursor: pointer;
+          text-align: initial;
+          .nm_language {
+            float: initial;
+            margin-right: 1rem;
+            margin-top: 0.6rem;
+            text-align: right;
+            border: 0.1rem solid transparent;
+            letter-spacing: 0;
+            font-family: 'gibson', Helvetica, Arial, sans-serif;
+            color: #4c60f6;
+            position: relative;
+            .nm_selection {
+              display: inline-block;
+              position: relative;
+              z-index: 1003;
+              font-style: inherit;
+              font-weight: inherit;
+            }
+            .nm_filter {
+              border: 0.1rem solid #dadada;
+              border-radius: 0.5rem;
+              border-bottom-right-radius: 0.5rem;
+              border-top-right-radius: 0;
+              bottom: auto;
+              left: auto;
+              margin-top: 1rem;
+              padding: 0.5rem 0;
+              right: -0.02rem;
+              min-width: 13rem;
+              transform: none;
+              transition-property: opacity;
+              box-shadow: none;
+              margin-left: 0;
+              opacity: 0;
+              background: #ffffff;
+              box-sizing: border-box;
+              position: absolute;
+              z-index: 1001;
+              pointer-events: none;
+              transform-origin: 0 100%;
+              will-change: transform, opacity;
+              transition-duration: 0.25s;
+              .nm_menu {
+                list-style: none;
+                color: #4c60f6;
+                .nm_menu_item {
+                  font-family: 'gibsonsemibold', Helvetica, Arial, sans-serif;
+                  width: 100%;
+                  color: #05a690;
+                  font-size: 14px;
+                  text-align: left;
+                  box-sizing: border-box;
+                  display: list-item;
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -363,6 +449,53 @@ input:valid + .nm_place_label {
       }
     }
   }
+  .nm_signup {
+    border: 0.1rem solid #4c60f6;
+    border-radius: 3rem;
+    margin-top: 0;
+    margin-right: 1.2rem;
+    width: auto;
+    position: relative;
+    order: 4;
+    color: #7b8694;
+    display: flex;
+    .nm_signup_icon {
+      height: 1rem;
+      width: 1rem;
+      left: 0.7rem;
+      top: 0.6rem;
+      position: absolute;
+    }
+    .nm_signup_email {
+      border-bottom: 0;
+      border: none;
+      display: block;
+      font-family: 'gibson', Helvetica, Arial, sans-serif;
+      font-size: 0.8rem;
+      padding-left: 1.5rem;
+      padding-right: 0.5rem;
+      transition: all 0.3s ease;
+      width: 7rem;
+      margin: 0.1rem 1rem 0.1rem;
+    }
+    .nm_signup_btn {
+      border-radius: 23px;
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+      width: auto;
+      margin: 0;
+      padding: 0.5rem 0.5rem !important;
+      border: 1px solid #4c60f6;
+      background: #4c60f6;
+      display: inline-block;
+      color: #fff;
+      font-family: 'gibsonsemibold', Helvetica, Arial, sans-serif;
+      text-align: center;
+      font-size: 1rem;
+      line-height: 1rem;
+      cursor: pointer;
+    }
+  }
 
   .nm_navigation_item {
     margin-left: 1.2rem;
@@ -391,5 +524,126 @@ input:valid + .nm_place_label {
 
 /* ======================= HEAD END ========================= */
 
-/* ======================= CONTAINER START ========================= */
-/* ======================= CONTAINER END ========================= */
+/* ======================= MAIN START ========================= */
+.nm_main {
+  margin-top: 5rem;
+  display: block;
+  .nm_section_block {
+    position: relative;
+    .nm_container {
+      margin: 0 auto;
+      max-width: 1280px;
+      padding: 0 20px;
+      .nm_column {
+        display: flex;
+        align-items: center;
+        .nm_col_content {
+          min-height: 0px;
+          order: 1;
+          padding-right: 2%;
+          flex: none;
+          width: 50%;
+          align-items: flex-start;
+          justify-content: center;
+          margin-top: 0;
+          flex-direction: column;
+          .nm_cont01_title {
+            font-size: 3rem !important;
+            line-height: 3rem !important;
+            margin-bottom: 0.8rem !important;
+            color: #002e6e;
+            font-family: 'gibsonsemibold', Helvetica, Arial, sans-serif;
+          }
+          .nm_cont01_summary {
+            margin-bottom: 1rem;
+            font-size: 1rem !important;
+            line-height: 1.5rem !important;
+          }
+        }
+        .nm_txt_img_box {
+          display: flex;
+          flex-grow: 1;
+          flex-shrink: 1;
+          flex-basis: 0;
+          padding: 10px;
+          a {
+            color: #fff;
+            transition: all 0.2s ease-in-out;
+            font-family: 'gibsonsemibold', Helvetica, Arial, sans-serif;
+            font-size: 1rem;
+            line-height: 2rem;
+            cursor: pointer;
+            text-decoration: none;
+          }
+          a > div {
+            background-color: #7d8597;
+            border-radius: 2rem;
+            padding: 3rem;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center right;
+          }
+          a:hover {
+            transform: scaleX(1.05) scaleY(1.05);
+            transition: all 0.2s ease-in-out;
+            mask-image: linear-gradient(55deg, transparent 5%, #000 35%, #000 70%, transparent 95%);
+            .nm_img {
+              transform: rotate(15deg);
+              transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            }
+          }
+          h5 {
+            margin-bottom: 15px;
+            font-size: 1.3rem !important;
+            line-height: 1.5rem !important;
+            font-weight: bold !important;
+          }
+          p {
+            font-size: 0.9rem;
+            font-family: 'canada-type-gibson', sans-serif;
+            font-style: normal;
+            font-weight: 600;
+            margin-bottom: 15px;
+            line-height: 1.2rem;
+          }
+          span {
+            border: 1px solid #fff;
+            font-size: 0.8rem;
+            font-weight: 600;
+          }
+          img {
+            height: auto;
+            max-width: 100%;
+          }
+          .nm_txt {
+            flex: none;
+            width: 58.333%;
+          }
+          .nm_img {
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            flex: none;
+            width: 41.667%;
+          }
+        }
+      }
+    }
+  }
+  .nm_btn {
+    border-radius: 23px;
+    display: inline-block;
+    color: #fff;
+    font-family: 'gibsonsemibold', Helvetica, Arial, sans-serif;
+    text-align: center;
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+    padding: 12px 40px !important;
+    cursor: pointer;
+    -moz-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    -webkit-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+    z-index: auto;
+    position: relative;
+  }
+}
+/* ======================= MAIN END ========================= */
