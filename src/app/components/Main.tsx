@@ -87,7 +87,7 @@ const Main = () => {
               <a href='https://www.bazaarvoice.com/products/?journey=homepage+promo+block'>
                 <div
                   style={{
-                    backgroundImage: "url('https://media.bazaarvoice.com/hp-promo-bg-orange.png')",
+                    backgroundImage: 'url("https://media.bazaarvoice.com/hp-promo-bg-orange.png")',
                   }}
                 >
                   <div className={css.cssGroup + 'flex'}>
@@ -114,28 +114,71 @@ const Main = () => {
               <a href='https://www.bazaarvoice.com/products/?journey=homepage+promo+block'>
                 <div
                   style={{
-                    backgroundImage: "url('https://media.bazaarvoice.com/hp-promo-bg-green.png')",
+                    backgroundImage:
+                      'url("https://media.bazaarvoice.com/SEI17-homepage-background.jpg")',
                   }}
                 >
                   <div className={css.cssGroup + 'flex'}>
                     <div className='column is-7 is-7-mobile'>
-                      <h5>Supercharge your commerce engine</h5>
+                      <h5>Consumer behaviors have shifted for good</h5>
                       <p>
-                        Shoppers seek out content from other consumers to help them make informed
-                        and confident purchases – both online and in-store.
+                        Download volume 17 of our flagship Shopper Experience Index report to learn
+                        how consumer purchasing preferences are changing – both online and in-store.
                       </p>
                       <span className={css.cssGroup + 'btn'}>Calculate the value of UGC</span>
                     </div>
                     <div className={css.cssGroup + 'img'}>
                       <img
                         decoding='async'
-                        src='https://media.bazaarvoice.com/hp-promo-calculator-1.png'
+                        src='https://media.bazaarvoice.com/SEI17-homepage-images.png'
                         alt=''
+                        style={{ marginTop: '-3rem', marginBottom: '-2rem' }}
                       />
                     </div>
                   </div>
                 </div>
               </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className={css.cssGroup + 'section_block'}>
+        <div>
+          <div className={css.cssGroup + 'container'}>
+            <div className='bvblock-paragraph__container'>
+              <div className={css.cssGroup + 'column'}>
+                <div className={css.cssGroup + 'txt_box'}>
+                  <h2 className={css.cssGroup + 'txt_bold'}>Tap into the power of UGC</h2>
+                  <div>
+                    <p>
+                      Whether it’s getting your user-generated content program started or expanding
+                      your content strategy, we’re here to be a true strategic partner for your
+                      business. Your brand, powered by Bazaarvoice, means smarter shopping for your
+                      customers – and business growth for you.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className={css.cssGroup + 'column'}>
+                <a
+                  href='/products/'
+                  className={css.cssGroup + 'round_btn'}
+                  target='_self'
+                >
+                  Explore the Bazaarvoice platform{' '}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className={css.cssGroup + 'section_block'}>
+        <div className={css.cssGroup + 'container'}>
+          <div className={css.cssGroup + 'column'}>
+            <div className={css.cssGroup + 'txt_box'}>
+              <div className={css.cssGroup + 'txt_bold'}>
+                Trusted by more than 12,000+ of the world’s leading brands and retailers
+              </div>
             </div>
           </div>
         </div>

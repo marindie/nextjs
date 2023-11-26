@@ -530,6 +530,7 @@ input:valid + .nm_place_label {
   display: block;
   .nm_section_block {
     position: relative;
+    margin-bottom: 2rem;
     .nm_container {
       margin: 0 auto;
       max-width: 1280px;
@@ -537,6 +538,7 @@ input:valid + .nm_place_label {
       .nm_column {
         display: flex;
         align-items: center;
+        justify-content: center;
         .nm_col_content {
           min-height: 0px;
           order: 1;
@@ -566,9 +568,10 @@ input:valid + .nm_place_label {
           flex-shrink: 1;
           flex-basis: 0;
           padding: 10px;
+          overflow: visible !important;
           a {
             color: #fff;
-            transition: all 0.2s ease-in-out;
+            transition: all 0.7s ease-in-out;
             font-family: 'gibsonsemibold', Helvetica, Arial, sans-serif;
             font-size: 1rem;
             line-height: 2rem;
@@ -585,11 +588,11 @@ input:valid + .nm_place_label {
           }
           a:hover {
             transform: scaleX(1.05) scaleY(1.05);
-            transition: all 0.2s ease-in-out;
-            mask-image: linear-gradient(55deg, transparent 5%, #000 35%, #000 70%, transparent 95%);
+            transition: all 0.7s ease-in-out;
+            // mask-image: linear-gradient(55deg, transparent 5%, #000 35%, #000 70%, transparent 95%);
             .nm_img {
-              transform: rotate(15deg);
-              transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+              transform: scaleX(1.2) scaleY(1.2) rotate(15deg);
+              transition: all 0.7s ease-in-out;
             }
           }
           h5 {
@@ -620,11 +623,37 @@ input:valid + .nm_place_label {
             width: 58.333%;
           }
           .nm_img {
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            transition: all 0.7s ease-in-out;
             flex: none;
             width: 41.667%;
           }
         }
+        .nm_txt_box {
+          text-align: center;
+          width: 66%;
+          flex: none;
+          .nm_txt_bold {
+            font-size: 3rem;
+            line-height: 4rem;
+            font-family: 'gibsonsemibold', Helvetica, Arial, sans-serif;
+            color: #002e6e;
+          }
+        }
+      }
+      .nm_round_btn {
+        padding: 12px;
+        border: 1px solid #4c60f6;
+        border-radius: 23px;
+        background: none;
+        color: #4c60f6;
+        text-decoration: none;
+        transition: all 0.3s ease-in-out;
+        font-weight: bold;
+      }
+      .nm_round_btn:hover {
+        transition: all 0.3s ease-in-out;
+        background-color: #4c60f6;
+        color: #fff;
       }
     }
   }
