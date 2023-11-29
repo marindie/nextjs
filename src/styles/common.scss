@@ -676,3 +676,33 @@ input:valid + .nm_place_label {
   }
 }
 /* ======================= MAIN END ========================= */
+
+/* ======================= SLIDE START ========================= */
+.client {
+  width: 100%;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: #f5f9ff;
+  margin: 10px 0 50px 0;
+  padding: 60px 0;
+}
+.client span {
+  margin: 0 40px;
+  width: auto;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+/* ======================== SLIDE END ========================== */
+/* ======================= FOOTER START ========================= */
+/* ======================== FOOTER END ========================== */

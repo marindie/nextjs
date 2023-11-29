@@ -1,9 +1,92 @@
 'use client'
 
+import client1 from '@/img/client/client1.png'
+import Image from 'next/image'
+import { useState } from 'react'
 import { useCssStore } from '../common/utils/zustand'
 
 const Main = () => {
   const { props: css } = useCssStore()
+
+  const [animate01, setAnimate01] = useState(true)
+  const onStop01 = () => setAnimate01(false)
+  const onRun01 = () => setAnimate01(true)
+
+  const iconList = [
+    client1,
+    // clinet2,
+    // clinet3,
+    // clinet4,
+    // clinet5,
+    // clinet6,
+    // clinet7,
+    // clinet8,
+    // clinet9,
+    // clinet10,
+    // clinet11,
+    // clinet12,
+    // clinet13,
+    // clinet14,
+    // clinet15,
+    // clinet16,
+    // clinet17,
+    // clinet18,
+    // clinet19,
+    // clinet20,
+    // clinet21,
+    // clinet22,
+    // clinet23,
+    // clinet24,
+    // clinet25,
+    // clinet26,
+    // clinet27,
+    // clinet28,
+    // clinet29,
+    // clinet30,
+    // clinet31,
+    // clinet32,
+    // clinet33,
+    // clinet34,
+    // clinet35,
+    // clinet36,
+    // clinet37,
+    // clinet38,
+    // clinet39,
+    // clinet40,
+    // clinet41,
+    // clinet42,
+    // clinet43,
+    // clinet44,
+    // clinet45,
+    // clinet46,
+    // clinet47,
+    // clinet48,
+    // clinet49,
+    // clinet50,
+    // clinet51,
+    // clinet52,
+    // clinet53,
+    // clinet54,
+    // clinet55,
+    // clinet56,
+    // clinet57,
+    // clinet58,
+    // clinet59,
+    // clinet60,
+    // clinet61,
+    // clinet62,
+    // clinet63,
+    // clinet64,
+    // clinet65,
+    // clinet66,
+    // clinet67,
+  ]
+
+  const iconList01: number[] = []
+  let idx = 1
+  for (idx; idx <= 10; idx++) {
+    iconList01.push(idx)
+  }
 
   return (
     <main
@@ -178,6 +261,48 @@ const Main = () => {
             <div className={css.cssGroup + 'txt_box'}>
               <div className={css.cssGroup + 'txt_bold'}>
                 Trusted by more than 12,000+ of the world’s leading brands and retailers
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div className='client'>
+          <div className='slidewrapper'>
+            <div className='slide_container'>
+              {/* 슬라이드 왼쪽 1열 */}
+              <div
+                className='slide_wrapper'
+                style={{ listStyle: 'none' }}
+                onMouseEnter={onStop01}
+                onMouseLeave={onRun01}
+              >
+                <div
+                  key='list1-1'
+                  className={'slide_left original'.concat(animate01 ? '' : ' stop')}
+                >
+                  {iconList01.map((key, index) => (
+                    <span key={index}>
+                      <Image
+                        src={client1}
+                        alt=''
+                      />
+                    </span>
+                  ))}
+                </div>
+                <div
+                  key='list2-2'
+                  className={'slide_left clone'.concat(animate01 ? '' : ' stop')}
+                >
+                  {iconList01.map((key, index) => (
+                    <span key={index}>
+                      <Image
+                        src={client1}
+                        alt=''
+                      />
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
