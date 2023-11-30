@@ -731,11 +731,11 @@ input:valid + .nm_place_label {
         z-index: 1;
       }
       &.original {
-        animation: 10s linear infinite normal none running infiniteAnimation1;
+        animation: 30s linear infinite normal none running infiniteAnimation1;
         /* animation-direction: alternate-reverse; */
       }
       &.clone {
-        animation: 10s linear infinite normal none running infiniteAnimation2;
+        animation: 30s linear infinite normal none running infiniteAnimation2;
       }
       &.stop {
         animation-play-state: paused;
