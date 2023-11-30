@@ -271,7 +271,7 @@ const Main = () => {
             </div>
           </div>
         </section>
-        <section>
+        <section className='rolling_item'>
           <div className='client'>
             <div className='slidewrapper'>
               <div className='slide_container'>

@@ -196,11 +196,7 @@ export default function Common() {
         />
       </div>
       <div className={'flex'}>
-        <div
-          className={
-            'gap ' + 'inline_grid ' + 'fitem_equal'
-          }
-        >
+        <div className={'gap ' + 'inline_grid ' + 'fitem_equal'}>
           {/* 멀티 셀렉드 X 클릭 애니메이션 */}
           <span className={'gap'}>멀티 셀렉트 & X 버튼 클릭시 애니메이션</span>
           <MakeSelect
@@ -217,11 +213,7 @@ export default function Common() {
             value={selectVal01}
           />
         </div>
-        <div
-          className={
-            'gap ' + 'inline_grid ' + 'fitem_equal'
-          }
-        >
+        <div className={'gap ' + 'inline_grid ' + 'fitem_equal'}>
           <span className={'gap'}>기본 Select</span>
           <SelectWithCheckBox
             {...defaultSelectOptions}
@@ -235,11 +227,7 @@ export default function Common() {
             value={selectVal02}
           />
         </div>
-        <div
-          className={
-            'gap ' + 'inline_grid ' + 'fitem_equal'
-          }
-        >
+        <div className={'gap ' + 'inline_grid ' + 'fitem_equal'}>
           <span className={'gap'}>컬러풀한 Select</span>
           <SelectColorful
             isMulti
