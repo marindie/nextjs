@@ -1,41 +1,23 @@
 'use client'
 
+import mainLogo from '@/img/client/client1.png'
+import Image from 'next/image'
+
 const FlexItem = () => {
   return (
     <div>
-      <div className='flex_container'>
-        <div className='item item1'>1</div>
-        <div className='item item2'>2</div>
-        <div className='item item3'>3</div>
-        <div className='item item4'>4</div>
-        <div className='item item5'>5</div>
-        <div className='item item6'>6</div>
-        <div className='item item7'>7</div>
-        <div className='item item8'>8</div>
-        <div className='item item9'>9</div>
-        <div className='item item10'>10</div>
-        <div className='item item1'>1</div>
-        <div className='item item2'>2</div>
-        <div className='item item3'>3</div>
-        <div className='item item4'>4</div>
-        <div className='item item5'>5</div>
-        <div className='item item6'>6</div>
-        <div className='item item7'>7</div>
-        <div className='item item8'>8</div>
-        <div className='item item9'>9</div>
-        <div className='item item10'>10</div>
-        <div className='item item1'>1</div>
-        <div className='item item2'>2</div>
-        <div className='item item3'>3</div>
-        <div className='item item4'>4</div>
-        <div className='item item5'>5</div>
-        <div className='item item6'>6</div>
-        <div className='item item7'>7</div>
-        <div className='item item8'>8</div>
-        <div className='item item9'>9</div>
-        <div className='item item10'>10</div>
+      <div className='flex_row_menu'>
+        <div className='item'>
+          <Image
+            src={mainLogo}
+            alt=''
+          />
+        </div>
+        <div className='item'>전체메뉴</div>
+        <div className='item'>메뉴그룹1</div>
+        <div className='item'>메뉴그룹2</div>
+        <div className='item'>로그인</div>
       </div>
-      <div></div>
     </div>
   )
 }

@@ -145,9 +145,9 @@ export default function Common() {
     <>
       <>{console.log(selectVal02)}</>
       <div>
-        <div className={css.cssGroup + 'flex_wrap'}>
-          <label className={css.cssGroup + 'gap ' + css.cssGroup + 'inline_grid'}>
-            <span className={css.cssGroup + 'label'}>스타일 변경</span>
+        <div className={'flex_wrap'}>
+          <label className={'gap ' + 'inline_grid'}>
+            <span className={'label'}>스타일 변경</span>
           </label>
           <SelectColorful
             optionList={CSS_GROUP_LISTS.map((e: any) => {
@@ -159,28 +159,28 @@ export default function Common() {
           />
         </div>
       </div>
-      <div className={css.cssGroup + 'flex'}>
+      <div className={'flex'}>
         {/* 라벨이 없는 기본 */}
         <CCInput
           inputType='text'
           data={input01}
           updateData={setInput01}
-          wrapClass={css.cssGroup + 'flex_wrap'}
+          wrapClass={'flex_wrap'}
           label={'User ID'}
-          labelWrapClass={css.cssGroup + 'item'}
-          labelClass={css.cssGroup + 'label'}
-          inputClass={css.cssGroup + 'rounded_input'}
+          labelWrapClass={'item'}
+          labelClass={'label'}
+          inputClass={'rounded_input'}
         />
         {/* Inline 형태의 라벨 */}
         <CCInput
           inputType='text'
           data={input02}
           updateData={setInput02}
-          wrapClass={css.cssGroup + 'flex_wrap'}
+          wrapClass={'flex_wrap'}
           label={'Name'}
-          labelWrapClass={css.cssGroup + 'item'}
-          labelClass={css.cssGroup + 'label'}
-          inputClass={css.cssGroup + 'rounded_input'}
+          labelWrapClass={'item'}
+          labelClass={'label'}
+          inputClass={'rounded_input'}
           isLabel={true}
         />
         {/* Placeholder 형태의 라벨 */}
@@ -188,21 +188,21 @@ export default function Common() {
           inputType='text'
           data={input03}
           updateData={setInput03}
-          wrapClass={css.cssGroup + 'flex_wrap'}
+          wrapClass={'flex_wrap'}
           label={'Name'}
-          placeLabelWrapClass={css.cssGroup + 'place_label'}
-          inputClass={css.cssGroup + 'rounded_input'}
+          placeLabelWrapClass={'place_label'}
+          inputClass={'rounded_input'}
           isLabelAsPlaceholder={true}
         />
       </div>
-      <div className={css.cssGroup + 'flex'}>
+      <div className={'flex'}>
         <div
           className={
-            css.cssGroup + 'gap ' + css.cssGroup + 'inline_grid ' + css.cssGroup + 'fitem_equal'
+            'gap ' + 'inline_grid ' + 'fitem_equal'
           }
         >
           {/* 멀티 셀렉드 X 클릭 애니메이션 */}
-          <span className={css.cssGroup + 'gap'}>멀티 셀렉트 & X 버튼 클릭시 애니메이션</span>
+          <span className={'gap'}>멀티 셀렉트 & X 버튼 클릭시 애니메이션</span>
           <MakeSelect
             closeMenuOnSelect={false}
             components={animatedComponents}
@@ -219,10 +219,10 @@ export default function Common() {
         </div>
         <div
           className={
-            css.cssGroup + 'gap ' + css.cssGroup + 'inline_grid ' + css.cssGroup + 'fitem_equal'
+            'gap ' + 'inline_grid ' + 'fitem_equal'
           }
         >
-          <span className={css.cssGroup + 'gap'}>기본 Select</span>
+          <span className={'gap'}>기본 Select</span>
           <SelectWithCheckBox
             {...defaultSelectOptions}
             optionList={searchResult.map((e) => {
@@ -237,10 +237,10 @@ export default function Common() {
         </div>
         <div
           className={
-            css.cssGroup + 'gap ' + css.cssGroup + 'inline_grid ' + css.cssGroup + 'fitem_equal'
+            'gap ' + 'inline_grid ' + 'fitem_equal'
           }
         >
-          <span className={css.cssGroup + 'gap'}>컬러풀한 Select</span>
+          <span className={'gap'}>컬러풀한 Select</span>
           <SelectColorful
             isMulti
             optionList={searchResult}
