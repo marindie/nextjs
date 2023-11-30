@@ -867,3 +867,49 @@ input:valid + .nm_place_label {
 /* ======================== SLIDE END ========================== */
 /* ======================= FOOTER START ========================= */
 /* ======================== FOOTER END ========================== */
+
+/* ================================================================= */
+.flex_container {
+  background: beige;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-evenly;
+  .item {
+    width: 40px;
+    height: 40px;
+  }
+  .item1 {
+    background: #002e6e;
+  }
+  .item2 {
+    background: #5bc9a4;
+  }
+  .item3 {
+    background: #f753c0;
+  }
+  .item4 {
+    background: #4c60f6;
+  }
+  .item5 {
+    background: #7b8694;
+  }
+  .item6 {
+    background: #53d44a;
+  }
+  .item7 {
+    background: #6a006e;
+  }
+  .item8 {
+    background: #4c60f6;
+  }
+  .item9 {
+    background: #002e6e;
+  }
+  .item10 {
+    background: #6495ed;
+  }
+}
+/* ================================================================= */
