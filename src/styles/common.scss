@@ -881,13 +881,12 @@ img {
   flex-direction: row;
   align-content: center;
   align-items: center;
-  height: 20vh;
-  background-color: #002e6e;
-
+  height: 6vw;
+  margin: 0 10rem;
+  border-radius: 20px;
   .item {
-    width: 20%;
+    width: 20rem;
     padding: 1.5rem;
-    flex-grow: 1;
     text-align: center;
   }
 }
@@ -897,7 +896,7 @@ img {
 .swiper_full_width {
   text-align: center;
   display: flex;
-  height: 20vh;
+  height: 80vh;
 }
 
 .swiper-slide {
@@ -910,13 +909,12 @@ img {
   justify-content: center;
   align-items: center;
   height: 100%;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  .img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 .autoplay-progress {
@@ -967,7 +965,7 @@ img {
   background-color: #fff;
 }
 .bg_yellow {
-  background-color: #eaff00;
+  background-color: #ffff4d;
 }
 .bg_red {
   background-color: #ff0000;
@@ -976,7 +974,7 @@ img {
   background-color: #00ff00;
 }
 .bg_blue {
-  background-color: #0000ff;
+  background: linear-gradient(to top, yellow, lightGreen);
 }
 .bg_black {
   background-color: #000000;
@@ -991,3 +989,7 @@ img {
   background-color: #ff00ff;
 }
 /* =========================== COLOR END ====================================== */
+
+.page_full {
+  height: 100%;
+}
