@@ -19,7 +19,7 @@ const FlexItem = () => {
 
   return (
     <div className='page_full'>
-      <div className='flex_row_menu bg_blue'>
+      <div className='flex_row_menu'>
         <div className='item'>
           <Image
             src={mainLogo}
@@ -29,7 +29,7 @@ const FlexItem = () => {
         <div className='item'>전체메뉴</div>
         <div className='item'>메뉴그룹1</div>
         <div className='item'>메뉴그룹2</div>
-        <div className='item'>로그인</div>
+        <button className='item login_btn'>로그인</button>
       </div>
       <div className='swiper_full_width'>
         <Swiper
@@ -69,6 +69,7 @@ const FlexItem = () => {
             ></Image>
           </SwiperSlide>
         </Swiper>
+        <button className='btn'>여기를 클릭하세요</button>
       </div>
     </div>
   )

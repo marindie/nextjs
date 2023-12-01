@@ -888,15 +888,36 @@ img {
     width: 20rem;
     padding: 1.5rem;
     text-align: center;
+    color: #5570f1;
+    font-weight: bold;
+  }
+  .login_btn {
+    border-radius: 20px;
+    background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+    padding: 0.5rem;
+    color: white;
+    font-size: 0.5cm;
+    cursor: pointer;
   }
 }
 /* =========================== FLEX ROW MENU END ====================================== */
 
 /* ========================= SWIPER START ============================== */
 .swiper_full_width {
+  position: relative;
   text-align: center;
   display: flex;
   height: 80vh;
+  .btn {
+    position: absolute;
+    z-index: 1;
+    top: 80%;
+    left: 10%;
+    width: 25%;
+    height: 10%;
+    border-radius: 25px;
+    background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
+  }
 }
 
 .swiper-slide {
