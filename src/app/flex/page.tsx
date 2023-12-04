@@ -5,8 +5,9 @@ import img01 from '@/img/nature/avenue01.jpg'
 import img02 from '@/img/nature/mountains01.jpg'
 import img03 from '@/img/nature/road01.jpg'
 import Image from 'next/image'
-import { useRef } from 'react'
 // import function to register Swiper custom elements
+import { faCamera } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
@@ -14,9 +15,6 @@ import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 const FlexItem = () => {
-  const progressCircle = useRef(1)
-  const progressContent = useRef(0)
-
   return (
     <div className='page_full'>
       <div className='flex_row_menu'>
@@ -70,6 +68,10 @@ const FlexItem = () => {
           </SwiperSlide>
         </Swiper>
         <button className='btn'>여기를 클릭하세요</button>
+      </div>
+      <div>
+        <FontAwesomeIcon icon={faCamera} />
+        <button className='top_sticky'></button>
       </div>
     </div>
   )

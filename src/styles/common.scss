@@ -683,89 +683,35 @@ img {
 
 /* ======================= SLIDE START ========================= */
 .rolling_item {
-  .client {
-    width: 100%;
-    display: inline-block;
-    overflow: hidden;
-    white-space: nowrap;
-    background-color: #f5f9ff;
-    margin: 10px 0 50px 0;
-    padding: 60px 0;
-  }
-  .client span {
-    margin: 0 40px;
-    width: auto;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: inline-flex;
-    -webkit-box-align: center;
-    -moz-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -moz-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-  }
-
   /* 고객사 고 슬라이드 */
   .slidewrapper {
     .slide_container {
       overflow: hidden;
+      white-space: nowrap;
 
       .slide_wrapper {
-        display: flex;
-        flex-wrap: nowrap;
+        display: inline-block;
       }
       .slide_left {
-        display: flex;
-        align-items: center;
-        flex-wrap: nowrap;
-        position: relative;
-
-        &::before {
-          content: '';
-          display: block;
-          width: 100%;
-          height: 1px;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          z-index: 1;
-        }
+        display: inline-block;
         &.original {
-          animation: 30s linear infinite normal none running infiniteAnimation1;
+          animation: 100s linear infinite normal none running infiniteAnimation1;
+          // animation: 60s linear infinite normal none running infiniteAnimation1;
           /* animation-direction: alternate-reverse; */
         }
         &.clone {
-          animation: 30s linear infinite normal none running infiniteAnimation2;
+          animation: 100s linear infinite normal none running infiniteAnimation2;
         }
         &.stop {
           animation-play-state: paused;
         }
 
         > span {
-          display: -webkit-box;
-          display: -moz-box;
-          display: -ms-flexbox;
-          display: inline-flex;
-          -webkit-box-align: center;
-          -moz-box-align: center;
-          -ms-flex-align: center;
-          align-items: center;
-          -webkit-box-pack: center;
-          -moz-box-pack: center;
-          -ms-flex-pack: center;
-          justify-content: center;
-          /*cursor: default;*/
-          z-index: 2;
-          transition: 0.3s;
-          transform: scale(1);
-
+          display: inline-block;
+          margin: 10px;
           > img {
             max-width: fit-content;
+            border-radius: 20px;
           }
         }
       }
@@ -828,14 +774,8 @@ img {
     0% {
       transform: translateX(0%);
     }
-    50% {
-      transform: translateX(-100%);
-    }
-    50.1% {
-      transform: translateX(100%);
-    }
     100% {
-      transform: translateX(0%);
+      transform: translateX(-100%);
     }
   }
   @keyframes infiniteAnimation2 {
@@ -843,7 +783,7 @@ img {
       transform: translateX(0%);
     }
     100% {
-      transform: translateX(-200%);
+      transform: translateX(-100%);
     }
   }
 

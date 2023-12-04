@@ -291,6 +291,7 @@ const Main = () => {
                         <Image
                           src={client1}
                           alt=''
+                          style={{ width: '300px', height: '180px' }}
                         />
                       </span>
                     ))}
@@ -304,6 +305,7 @@ const Main = () => {
                         <Image
                           src={client1}
                           alt=''
+                          style={{ width: '300px', height: '180px' }}
                         />
                       </span>
                     ))}
