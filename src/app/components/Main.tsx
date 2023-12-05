@@ -1,6 +1,16 @@
 'use client'
 
 import client1 from '@/img/client/client1.png'
+import client10 from '@/img/client/client10.png'
+import client11 from '@/img/client/client11.png'
+import client2 from '@/img/client/client2.png'
+import client3 from '@/img/client/client3.png'
+import client4 from '@/img/client/client4.png'
+import client5 from '@/img/client/client5.png'
+import client6 from '@/img/client/client6.png'
+import client7 from '@/img/client/client7.png'
+import client8 from '@/img/client/client8.png'
+import client9 from '@/img/client/client9.png'
 import Image from 'next/image'
 import { useState } from 'react'
 import { useCssStore } from '../common/utils/zustand'
@@ -14,16 +24,16 @@ const Main = () => {
 
   const iconList = [
     client1,
-    // clinet2,
-    // clinet3,
-    // clinet4,
-    // clinet5,
-    // clinet6,
-    // clinet7,
-    // clinet8,
-    // clinet9,
-    // clinet10,
-    // clinet11,
+    client2,
+    client3,
+    client4,
+    client5,
+    client6,
+    client7,
+    client8,
+    client9,
+    client10,
+    client11,
     // clinet12,
     // clinet13,
     // clinet14,
@@ -82,10 +92,10 @@ const Main = () => {
     // clinet67,
   ]
 
-  const iconList01: number[] = []
-  let idx = 1
-  for (idx; idx <= 10; idx++) {
-    iconList01.push(idx)
+  const iconList01: any[] = []
+  let idx = 0
+  for (idx; idx < 11; idx++) {
+    iconList01.push(iconList[idx])
   }
 
   return (
@@ -286,10 +296,10 @@ const Main = () => {
                     key='list1-1'
                     className={'slide_left original'.concat(animate01 ? '' : ' stop')}
                   >
-                    {iconList01.map((key, index) => (
+                    {iconList01.map((img, index) => (
                       <span key={index}>
                         <Image
-                          src={client1}
+                          src={img}
                           alt=''
                           style={{ width: '300px', height: '180px' }}
                         />
@@ -300,15 +310,52 @@ const Main = () => {
                     key='list2-2'
                     className={'slide_left clone'.concat(animate01 ? '' : ' stop')}
                   >
-                    {iconList01.map((key, index) => (
+                    {iconList01.map((img, index) => (
                       <span key={index}>
                         <Image
-                          src={client1}
+                          src={img}
                           alt=''
                           style={{ width: '300px', height: '180px' }}
                         />
                       </span>
                     ))}
+                  </div>
+                </div>
+                <div className='slide_container'>
+                  <div
+                    className='slide_wrapper'
+                    style={{ listStyle: 'none' }}
+                    onMouseEnter={onStop01}
+                    onMouseLeave={onRun01}
+                  >
+                    <div
+                      key='list1-1'
+                      className={'slide_left_slow original'.concat(animate01 ? '' : ' stop')}
+                    >
+                      {iconList01.map((img, index) => (
+                        <span key={index}>
+                          <Image
+                            src={img}
+                            alt=''
+                            style={{ width: '300px', height: '180px' }}
+                          />
+                        </span>
+                      ))}
+                    </div>
+                    <div
+                      key='list2-2'
+                      className={'slide_left_slow clone'.concat(animate01 ? '' : ' stop')}
+                    >
+                      {iconList01.map((img, index) => (
+                        <span key={index}>
+                          <Image
+                            src={img}
+                            alt=''
+                            style={{ width: '300px', height: '180px' }}
+                          />
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>

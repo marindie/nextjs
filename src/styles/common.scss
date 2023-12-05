@@ -715,6 +715,29 @@ img {
           }
         }
       }
+      .slide_left_slow {
+        display: inline-block;
+        &.original {
+          animation: 80s linear infinite normal none running infiniteAnimation1;
+          // animation: 60s linear infinite normal none running infiniteAnimation1;
+          /* animation-direction: alternate-reverse; */
+        }
+        &.clone {
+          animation: 80s linear infinite normal none running infiniteAnimation2;
+        }
+        &.stop {
+          animation-play-state: paused;
+        }
+
+        > span {
+          display: inline-block;
+          margin: 10px;
+          > img {
+            max-width: fit-content;
+            border-radius: 20px;
+          }
+        }
+      }
       .slide_right {
         display: flex;
         align-items: center;
