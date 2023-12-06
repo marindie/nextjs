@@ -977,3 +977,17 @@ img {
 .page_full {
   height: 100%;
 }
+
+/* =========================== KylieCosmeticMenu START ====================================== */
+.menu_wrap_01 {
+  position: relative;
+  .navigation {
+    .flex {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+    }
+  }
+}
+/* =========================== KylieCosmeticMenu END ====================================== */
