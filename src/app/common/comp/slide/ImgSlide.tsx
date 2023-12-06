@@ -1,8 +1,12 @@
+import { ImgSlideT } from '@/app/common/comp/ComType'
 import Image from 'next/image'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-const ImgSlide = (ImgSlideT) => {
+const ImgSlide = ({ imgList }: ImgSlideT) => {
   return (
     <div className='swiper_full_width'>
       <Swiper
@@ -20,27 +24,17 @@ const ImgSlide = (ImgSlideT) => {
         loop={true}
         className='mySwiper'
       >
-        <SwiperSlide>
-          <Image
-            className='img'
-            src={img01}
-            alt=''
-          ></Image>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            className='img'
-            src={img02}
-            alt=''
-          ></Image>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            className='img'
-            src={img03}
-            alt=''
-          ></Image>
-        </SwiperSlide>
+        {imgList.map((img: any, index) => {
+          return (
+            <SwiperSlide key={index}>
+              <Image
+                className='img'
+                src={img}
+                alt=''
+              />
+            </SwiperSlide>
+          )
+        })}
       </Swiper>
       <button className='btn'>여기를 클릭하세요</button>
     </div>
